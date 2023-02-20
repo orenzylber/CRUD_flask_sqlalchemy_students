@@ -10,6 +10,10 @@ CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Students.db'
 db = SQLAlchemy(app)
 
+@app.route('/test')
+def hello():
+    return 'Hello, World!'
+
 class Students(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     stuname = db.Column(db.String(80), unique=True, nullable=False)
